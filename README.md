@@ -6,6 +6,7 @@ Docker-compose file and scripts for smart home project
 - npm
 - angular_cli
 - maven 
+- jdk 17
 - Docker and Docker compose
 
 ## How to run 
