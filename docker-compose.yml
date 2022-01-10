@@ -6,10 +6,8 @@ services:
     restart: unless-stopped
     ports:
       - 27017:27017 
-    networks:
-      - smart_home_network
       
-  server:
+  smart-home-server:
     build:
       context: ./smart-home-server
       dockerfile: Dockerfile
@@ -19,22 +17,22 @@ services:
     restart: unless-stopped
     depends_on:
       - mongo_db
-    networks:
-      - smart_home_network
 
-  angular-ui:
+  smart-home-ui:
     build:
       context: ./smart_home_web-app
       dockerfile: Dockerfile
     restart: unless-stopped  
     ports:
       - "4200:80"
-    container_name: angular-ui
+    container_name: smart-home-ui
+    environment:
+      - API_URL=${API_URL}
+      - WEBSOCKET_URL=${WEBSOCKET_URL}
     volumes:
       - ./smart_home_web-app/dist:/dist
-    networks:
-      - smart_home_network
 
 networks:
-  smart_home_network:
-    driver: bridge
+  default:
+    external: 
+      name: docker_default
