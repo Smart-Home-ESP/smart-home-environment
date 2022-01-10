@@ -7,11 +7,12 @@ Docker-compose file and scripts for smart home project
 
 ## How to run 
 - Unpack under downloaded repositories: 
+
 | Name | URL |
 | ------ | ------ |
 | smart-home-server - Backend | https://github.com/Smart-Home-ESP/smart-home-server |
 | smart_home_web-app  - UI| https://github.com/Smart-Home-ESP/smart_home_web-app |
-  ```
+```
   .
   run.sh
   docker-compose.yml
